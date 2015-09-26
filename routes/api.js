@@ -29,8 +29,15 @@ Messages.remove({_id: req.body._id});
 });
 
 router.post('/labels', function (req, res, next) {
+  console.log(req.body);
   console.log(req.body._id);
 Messages.update({_id: req.body._id}, {$set:{filters:req.body.filters}});
+});
+
+router.post('/insert', function (req, res, next) {
+  console.log("insert route");
+  console.log(req.body);
+Messages.insert({subject:req.body, starred:false, read:false, filters:[]});
 });
 
 module.exports = router;
