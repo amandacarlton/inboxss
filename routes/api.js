@@ -35,7 +35,7 @@ Messages.update({_id: req.body._id}, {$set:{filters:req.body.filters}});
 });
 
 router.post('/insert', function (req, res, next) {
-  console.log("insert route");
+  // console.log(newMessage);
   console.log(req.body);
 Messages.insert({subject:req.body, starred:false, read:false, filters:[]});
 });
